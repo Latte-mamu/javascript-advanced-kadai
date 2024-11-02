@@ -64,7 +64,7 @@ const keyPress = e => {
 	untypedfield.textContent = untyped;
 
 	// 正しく入力された文字数を（num）に表示する
-	num.textContent = score++;
+	num.textContent = score;
 
 	// テキストがなくなったら新しいテキストを表示
 	if(untyped === ''){
