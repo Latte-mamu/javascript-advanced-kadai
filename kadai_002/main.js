@@ -97,24 +97,20 @@ const rankCheck = score => {
 const gameOver = id => {
 	clearInterval(id); 
 
-	const result = confirm(rankCheck(score));
+	untypedfield.textContent = 'タイムアップ！';
 
-	// OKボタンをクリックされたらリロードする
-	if(result == true) {
+	typedfield.textContent = '';
+
+	setTimeout(() => {
+		//先に記入した「タイムアップ」が表示されないので、一定の時間がきたら待機せずに処理を実行させる為にここに書く
+		const result = confirm(rankCheck(score));
+
+		// OKボタンをクリックされたらリロードする
+		if(result == true) {
 		window.location.reload();
-	}else if(result == false) {
-		
-		setTimeout(()=> {
-			// console.log('タイムアップ！');
-			//「×」を選択したら「typedfield」に文字を表示させない
-		typedfield.textContent = '';
-
-		//タイマーが「10ミリ秒」になったら「タイムアップ！」を「untypedfield」表示しよう
-		untypedfield.textContent = 'タイムアップ！';
-
-		}, '10');		
-	}
-};
+		}
+  	}, 10);	
+}
 
 // カウントダウンタイマー
 const timer = () => {
